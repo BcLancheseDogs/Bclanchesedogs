@@ -1,1 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
 
+<title>BC LANCHES E DOG'S | Delivery</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#c9a45c',
+        gold2: '#f0d08a'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(201,164,92,.15),transparent 35%),
+    #090909;
+  color:white;
+  font-family:Arial,sans-serif;
+}
+
+.serif{
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.gold-text{
+  background:linear-gradient(135deg,#f2d58f,#b88a3c,#f1d28b);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.glass{
+  background:rgba(20,20,20,.85);
+  border:1px solid rgba(201,164,92,.18);
+  backdrop-filter:blur(12px);
+}
+
+.product{
+  background:linear-gradient(145deg,#181818,#0e0e0e);
+  border:1px solid rgba(255,255,255,.07);
+  transition:.2s;
+}
+
+.product:active{
+  transform:scale(.98);
+}
+
+input,select,textarea{
+  width:100%;
+  background:#171717;
+  color:white;
+  border:1px solid #292929;
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#c9a45c;
+}
+
+.modal{
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(8px);
+}
+
+::-webkit-scrollbar{
+  width:5px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#c9a45c;
+  border-radius:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- CABEÇALHO -->
+<header class="sticky top-0 z-40 bg-black/90 backdrop-blur-xl border-b border-white/5">
+
+<div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+
+<div>
+<div class="text-[10px] tracking-[.4em] text-gold uppercase">
+BC
+</div>
+
+<div class="serif text-xl tracking-wide">
+LANCHES <span class="text-gold">&</span> DOG'S
+</div>
+</div>
+
+<button onclick="abrirCarrinho()"
+class="relative border border-gold/50 rounded-full px-4 py-2 text-sm">
+
+🛒 Pedido
+
+<span id="contador"
+class="hidden absolute -top-2 -right-1 bg-gold text-black w-5 h-5 rounded-full text-xs items-center justify-center">
+0
+</span>
+
+</button>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+<section class="max-w-5xl mx-auto px-4 pt-8">
+
+<div class="rounded-[30px] overflow-hidden border border-gold/20
+bg-gradient-to-br from-[#211b10] via-[#101010] to-black
+p-7 sm:p-12">
+
+<div class="text-[10px] tracking-[.3em] uppercase text-gold">
+✦ DELIVERY ARTESANAL
+</div>
+
+<h1 class="serif text-4xl sm:text-6xl leading-tight mt-5">
+Sabor que merece
+<br>
+<span class="gold-text">ser lembrado.</span>
+</h1>
+
+<p class="text-white/60 mt-5 max-w-lg leading-relaxed">
+Lanches, dog's, porções, açaí e bebidas preparados para chegar até você com sabor e qualidade.
+</p>
+
+<div class="flex gap-3 mt-7 flex-wrap">
+
+<a href="#cardapio"
+class="bg-gold text-black rounded-full px-6 py-3 font-bold text-sm">
+Ver cardápio
+</a>
+
+<a href="https://wa.me/5547997014386"
+target="_blank"
+class="border border-white/20 rounded-full px-6 py-3 font-semibold text-sm">
+WhatsApp
+</a>
+
+</div>
+
+<div class="flex flex-wrap gap-5 mt-8 text-xs text-white/45">
+
+<span>🛵 Delivery</span>
+<span>📍 Camboriú</span>
+<span>📍 Balneário Camboriú</span>
+<span>✦ Segunda a sábado</span>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- INFORMAÇÕES -->
+<section class="max-w-5xl mx-auto px-4 py-7">
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+<div class="glass rounded-2xl p-4">
+<div class="text-gold text-xl">🛵</div>
+<div class="text-xs text-white/40 mt-2">Camboriú</div>
+<div class="font-bold mt-1">R$ 4,00</div>
+</div>
+
+<div class="glass rounded-2xl p-4">
+<div class="text-gold text-xl">📍</div>
+<div class="text-xs text-white/40 mt-2">Balneário</div>
+<div class="font-bold mt-1">R$ 10,00</div>
+</div>
+
+<div class="glass rounded-2xl p-4">
+<div class="text-gold text-xl">💳</div>
+<div class="text-xs text-white/40 mt-2">Pagamento</div>
+<div class="font-bold mt-1">Pix / Cartão</div>
+</div>
+
+<div class="glass rounded-2xl p-4">
+<div class="text-gold text-xl">📅</div>
+<div class="text-xs text-white/40 mt-2">Funcionamento</div>
+<div class="font-bold mt-1">Seg. a sáb.</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CARDÁPIO -->
+<section id="cardapio"
+class="max-w-5xl mx-auto px-4 pb-32">
+
+<div class="mb-6">
+
+<div class="text-[10px] tracking-[.3em] uppercase text-gold">
+NOSSO MENU
+</div>
+
+<h2 class="serif text-3xl mt-1">
+Cardápio
+</h2>
+
+</div>
+
+
+<!-- CATEGORIAS -->
+<div id="categorias"
+class="flex gap-2 overflow-x-auto pb-5">
+</div>
+
+
+<!-- PRODUTOS -->
+<div id="produtos"
+class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+</div>
+
+</section>
+
+
+<!-- BOTÃO CARRINHO -->
+<button id="botaoCarrinho"
+onclick="abrirCarrinho()"
+class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-30
+w-[calc(100%-32px)] max-w-md
+bg-gold text-black rounded-2xl px-5 py-4 font-bold shadow-2xl">
+
+<div class="flex justify-between">
+<span>🛒 Ver meu pedido</span>
+<span id="totalFlutuante">R$ 0,00</span>
+</div>
+
+</button>
+
+
+<!-- CARRINHO -->
+<div id="modalCarrinho"
+class="hidden fixed inset-0 z-50 modal p-4 overflow-y-auto">
+
+<div class="min-h-full flex items-end sm:items-center justify-center">
+
+<div class="bg-[#0d0d0d] border border-gold/20
+rounded-[28px] w-full max-w-lg overflow-hidden">
+
+<div class="p-5 border-b border-white/5 flex justify-between">
+
+<div>
+
+<div class="text-[10px] tracking-[.3em] text-gold">
+SEU PEDIDO
+</div>
+
+<h2 class="serif text-2xl">
+Resumo
+</h2>
+
+</div>
+
+<button onclick="fecharCarrinho()"
+class="w-10 h-10 rounded-full bg-white/5">
+✕
+</button>
+
+</div>
+
+
+<div id="itensCarrinho"
+class="p-5 max-h-[40vh] overflow-y-auto">
+</div>
+
+
+<div class="p-5 space-y-4">
+
+<div class="flex justify-between text-white/50">
+<span>Subtotal</span>
+<strong id="subtotal">R$ 0,00</strong>
+</div>
+
+
+<div>
+
+<label class="text-xs text-white/50">
+Cidade de entrega
+</label>
+
+<select id="cidade"
+onchange="atualizarEntrega()"
+class="mt-2">
+
+<option value="">
+Selecione a cidade
+</option>
+
+<option value="Camboriú">
+Camboriú — R$ 4,00
+</option>
+
+<option value="Balneário Camboriú">
+Balneário Camboriú — R$ 10,00
+</option>
+
+<option value="Outra região">
+Outra região — consultar
+</option>
+
+</select>
+
+</div>
+
+
+<div class="flex justify-between text-white/50">
+
+<span>Entrega</span>
+
+<strong id="entrega">
+—
+</strong>
+
+</div>
+
+
+<div class="border-t border-white/5 pt-4 flex justify-between">
+
+<span class="font-bold">
+Total
+</span>
+
+<strong id="total"
+class="text-gold2 text-xl">
+R$ 0,00
+</strong>
+
+</div>
+
+
+<button onclick="abrirCheckout()"
+class="w-full bg-gold text-black rounded-xl py-4 font-bold">
+Continuar pedido →
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- CHECKOUT -->
+<div id="modalCheckout"
+class="hidden fixed inset-0 z-[60] modal p-4 overflow-y-auto">
+
+<div class="min-h-full flex items-end sm:items-center justify-center">
+
+<div class="bg-[#0d0d0d] border border-gold/20
+rounded-[28px] w-full max-w-lg overflow-hidden">
+
+<div class="p-5 border-b border-white/5 flex justify-between">
+
+<div>
+
+<div class="text-[10px] tracking-[.3em] text-gold">
+FINALIZAÇÃO
+</div>
+
+<h2 class="serif text-2xl">
+Dados da entrega
+</h2>
+
+</div>
+
+<button onclick="fecharCheckout()"
+class="w-10 h-10 rounded-full bg-white/5">
+✕
+</button>
+
+</div>
+
+
+<form id="formulario"
+class="p-5 space-y-3">
+
+<input
+id="nome"
+required
+placeholder="Seu nome">
+
+<input
+id="telefone"
+required
+placeholder="Seu WhatsApp">
+
+<input
+id="endereco"
+required
+placeholder="Rua / Avenida">
+
+<div class="grid grid-cols-2 gap-3">
+
+<input
+id="numero"
+required
+placeholder="Número">
+
+<input
+id="bairro"
+required
+placeholder="Bairro">
+
+</div>
+
+<input
+id="complemento"
+placeholder="Complemento (opcional)">
+
+
+<label class="text-xs text-white/50">
+Forma de pagamento
+</label>
+
+<select id="pagamento" required>
+
+<option value="">
+Selecione
+</option>
+
+<option>
+Pix
+</option>
+
+<option>
+Cartão de débito
+</option>
+
+<option>
+Cartão de crédito
+</option>
+
+</select>
+
+
+<textarea
+id="observacoes"
+rows="3"
+placeholder="Observações do pedido (opcional)">
+</textarea>
+
+
+<div class="bg-white/[.03] border border-white/5 rounded-xl p-4 text-xs text-white/50">
+
+Pagamento em dinheiro à vista:
+<strong class="text-white">
+não aceitamos.
+</strong>
+
+</div>
+
+
+<button
+type="submit"
+class="w-full bg-gold text-black rounded-xl py-4 font-bold">
+
+Enviar pedido pelo WhatsApp
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================================
+   PRODUTOS
+   ================================
+
+   ESTES SÃO ESPAÇOS RESERVADOS.
+
+   Depois vamos colocar aqui os
+   produtos REAIS do seu cardápio.
+*/
+
+const produtos = [
+
+{
+id:1,
+categoria:"Lanches",
+nome:"Produto do cardápio",
+descricao:"Descrição do produto.",
+preco:0
+},
+
+{
+id:2,
+categoria:"Dog's",
+nome:"Produto do cardápio",
+descricao:"Descrição do produto.",
+preco:0
+},
+
+{
+id:3,
+categoria:"Porções",
+nome:"Produto do cardápio",
+descricao:"Descrição do produto.",
+preco:0
+},
+
+{
+id:4,
+categoria:"Açaí",
+nome:"Produto do cardápio",
+descricao:"Descrição do produto.",
+preco:0
+},
+
+{
+id:5,
+categoria:"Bebidas",
+nome:"Produto do cardápio",
+descricao:"Descrição do produto.",
+preco:0
+},
+
+{
+id:6,
+categoria:"Sucos",
+nome:"Produto do cardápio",
+descricao:"Descrição do produto.",
+preco:0
+}
+
+];
+
+
+let categoriaAtual="Todos";
+let carrinho=[];
+
+
+function dinheiro(valor){
+
+return valor.toLocaleString(
+"pt-BR",
+{
+style:"currency",
+currency:"BRL"
+}
+);
+
+}
+
+
+/* CATEGORIAS */
+
+function mostrarCategorias(){
+
+const categorias=[
+"Todos",
+...new Set(produtos.map(p=>p.categoria))
+];
+
+document.getElementById("categorias").innerHTML=
+
+categorias.map(c=>`
+
+<button
+onclick="selecionarCategoria('${c}')"
+class="whitespace-nowrap rounded-full border px-4 py-2 text-xs
+${c===categoriaAtual
+?"bg-gold text-black border-gold font-bold"
+:"border-white/10 text-white/50"}">
+
+${c}
+
+</button>
+
+`).join("");
+
+}
+
+
+/* PRODUTOS */
+
+function mostrarProdutos(){
+
+const lista=
+
+categoriaAtual==="Todos"
+?produtos
+:produtos.filter(
+p=>p.categoria===categoriaAtual
+);
+
+
+document.getElementById("produtos").innerHTML=
+
+lista.map(p=>`
+
+<div class="product rounded-2xl overflow-hidden">
+
+<div class="h-44 flex items-center justify-center bg-[#181818]">
+
+<div class="text-center">
+
+<div class="text-4xl opacity-50">
+🍽️
+</div>
+
+<div class="text-[10px] tracking-[.2em] uppercase text-gold mt-2">
+FOTO EM BREVE
+</div>
+
+</div>
+
+</div>
+
+
+<div class="p-5">
+
+<div class="text-[10px] uppercase tracking-[.2em] text-gold">
+${p.categoria}
+</div>
+
+<h3 class="serif text-xl mt-1">
+${p.nome}
+</h3>
+
+<p class="text-xs text-white/40 mt-2">
+${p.descricao}
+</p>
+
+
+<div class="flex justify-between items-center mt-5">
+
+<strong class="text-gold2">
+
+${p.preco>0
+?dinheiro(p.preco)
+:"Preço em breve"}
+
+</strong>
+
+
+<button
+onclick="adicionar(${p.id})"
+${p.preco<=0?"disabled":""}
+class="rounded-full px-4 py-2 text-xs font-bold
+${p.preco>0
+?"bg-gold text-black"
+:"bg-white/5 text-white/25"}">
+
+${p.preco>0
+?"+ Adicionar"
+:"Aguardando"}
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+function selecionarCategoria(c){
+
+categoriaAtual=c;
+
+mostrarCategorias();
+mostrarProdutos();
+
+}
+
+
+/* CARRINHO */
+
+function adicionar(id){
+
+const produto=produtos.find(p=>p.id===id);
+
+if(!produto || produto.preco<=0)
+return;
+
+
+const existente=
+carrinho.find(p=>p.id===id);
+
+
+if(existente){
+
+existente.quantidade++;
+
+}else{
+
+carrinho.push({
+...produto,
+quantidade:1
+});
+
+}
+
+atualizarCarrinho();
+
+}
+
+
+function alterarQuantidade(id,valor){
+
+const item=
+carrinho.find(p=>p.id===id);
+
+if(!item)
+return;
+
+item.quantidade+=valor;
+
+if(item.quantidade<=0){
+
+carrinho=
+carrinho.filter(p=>p.id!==id);
+
+}
+
+atualizarCarrinho();
+
+mostrarCarrinho();
+
+}
+
+
+function subtotalValor(){
+
+return carrinho.reduce(
+(total,item)=>
+total+
+item.preco*item.quantidade,
+0
+);
+
+}
+
+
+function taxaEntrega(){
+
+const cidade=
+document.getElementById("cidade").value;
+
+if(cidade==="Camboriú")
+return 4;
+
+if(cidade==="Balneário Camboriú")
+return 10;
+
+return 0;
+
+}
+
+
+function atualizarEntrega(){
+
+const cidade=
+document.getElementById("cidade").value;
+
+const taxa=taxaEntrega();
+
+
+document.getElementById("entrega").textContent=
+
+cidade==="Outra região"
+?"Consultar"
+:cidade
+?dinheiro(taxa)
+:"—";
+
+
+atualizarTotais();
+
+}
+
+
+function atualizarTotais(){
+
+const subtotal=subtotalValor();
+
+const cidade=
+document.getElementById("cidade").value;
+
+const taxa=taxaEntrega();
+
+
+document.getElementById("subtotal").textContent=
+dinheiro(subtotal);
+
+
+document.getElementById("total").textContent=
+
+cidade==="Outra região"
+?dinheiro(subtotal)
+:dinheiro(subtotal+taxa);
+
+
+document.getElementById("totalFlutuante").textContent=
+dinheiro(subtotal+taxa);
+
+}
+
+
+function atualizarCarrinho(){
+
+const quantidade=
+carrinho.reduce(
+(total,item)=>
+total+item.quantidade,
+0
+);
+
+
+const contador=
+document.getElementById("contador");
+
+
+contador.textContent=quantidade;
+
+contador.classList.toggle(
+"hidden",
+quantidade===0
+);
+
+contador.classList.toggle(
+"flex",
+quantidade>0
+);
+
+
+document.getElementById(
+"botaoCarrinho"
+).classList.toggle(
+"hidden",
+quantidade===0
+);
+
+
+atualizarTotais();
+
+}
+
+
+function mostrarCarrinho(){
+
+const area=
+document.getElementById("itensCarrinho");
+
+
+if(carrinho.length===0){
+
+area.innerHTML=`
+
+<div class="text-center py-10 text-white/40">
+
+Seu pedido está vazio.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+area.innerHTML=
+
+carrinho.map(item=>`
+
+<div class="flex gap-3 py-4 border-b border-white/5">
+
+<div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center">
+🍽️
+</div>
+
+
+<div class="flex-1">
+
+<div class="font-semibold text-sm">
+${item.nome}
+</div>
+
+<div class="text-xs text-gold mt-1">
+${dinheiro(item.preco)}
+</div>
+
+
+<div class="flex items-center gap-3 mt-2">
+
+<button
+onclick="alterarQuantidade(${item.id},-1)"
+class="w-7 h-7 rounded-full bg-white/5">
+−
+</button>
+
+<span>
+${item.quantidade}
+</span>
+
+<button
+onclick="alterarQuantidade(${item.id},1)"
+class="w-7 h-7 rounded-full bg-white/5">
++
+</button>
+
+</div>
+
+</div>
+
+
+<strong class="text-sm">
+${dinheiro(item.preco*item.quantidade)}
+</strong>
+
+</div>
+
+`).join("");
+
+}
+
+
+function abrirCarrinho(){
+
+mostrarCarrinho();
+
+document
+.getElementById("modalCarrinho")
+.classList.remove("hidden");
+
+}
+
+
+function fecharCarrinho(){
+
+document
+.getElementById("modalCarrinho")
+.classList.add("hidden");
+
+}
+
+
+function abrirCheckout(){
+
+if(carrinho.length===0){
+
+alert("Adicione pelo menos um produto.");
+
+return;
+
+}
+
+
+const cidade=
+document.getElementById("cidade").value;
+
+
+if(!cidade){
+
+alert("Escolha a cidade de entrega.");
+
+return;
+
+}
+
+
+fecharCarrinho();
+
+document
+.getElementById("modalCheckout")
+.classList.remove("hidden");
+
+}
+
+
+function fecharCheckout(){
+
+document
+.getElementById("modalCheckout")
+.classList.add("hidden");
+
+}
+
+
+/* ENVIO PARA WHATSAPP */
+
+document
+.getElementById("formulario")
+.addEventListener(
+"submit",
+function(event){
+
+event.preventDefault();
+
+
+const cidade=
+document.getElementById("cidade").value;
+
+const taxa=
+taxaEntrega();
+
+const subtotal=
+subtotalValor();
+
+const total=
+cidade==="Outra região"
+?subtotal
+:subtotal+taxa;
+
+
+const produtosTexto=
+
+carrinho.map(item=>
+
+`• ${item.quantidade}x ${item.nome} — ${dinheiro(item.preco*item.quantidade)}`
+
+).join("\n");
+
+
+const mensagem=
+
+`Olá, BC LANCHES E DOG'S! 🍽️
+
+Gostaria de fazer um pedido:
+
+${produtosTexto}
+
+Subtotal: ${dinheiro(subtotal)}
+
+Taxa de entrega:
+${cidade==="Outra região"
+?"Consultar"
+:dinheiro(taxa)}
+
+Total:
+${cidade==="Outra região"
+?dinheiro(total)+" + taxa a consultar"
+:dinheiro(total)}
+
+
+📍 DADOS DA ENTREGA
+
+Nome: ${document.getElementById("nome").value}
+
+WhatsApp: ${document.getElementById("telefone").value}
+
+Cidade: ${cidade}
+
+Endereço:
+${document.getElementById("endereco").value},
+${document.getElementById("numero").value}
+
+Bairro:
+${document.getElementById("bairro").value}
+
+Complemento:
+${document.getElementById("complemento").value || "Não informado"}
+
+
+💳 PAGAMENTO
+
+${document.getElementById("pagamento").value}
+
+
+📝 OBSERVAÇÕES
+
+${document.getElementById("observacoes").value || "Nenhuma"}
+
+
+Pagamento em dinheiro à vista:
+NÃO ACEITAMOS.`;
+
+
+window.open(
+"https://wa.me/5547997014386?text="
++
+encodeURIComponent(mensagem),
+"_blank"
+);
+
+});
+
+
+mostrarCategorias();
+mostrarProdutos();
+atualizarCarrinho();
+
+</script>
+
+</body>
+  </html>
